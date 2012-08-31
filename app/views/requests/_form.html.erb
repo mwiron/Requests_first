@@ -1,0 +1,93 @@
+<%= form_for(@request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :request %><br />
+    <%= f.text_field :request %>
+  </div>
+  <div class="field">
+    <%= f.label :verantwortlicherITSG %><br />
+    <%= f.text_field :verantwortlicherITSG %>
+  </div>
+  <div class="field">
+    <%= f.label :verantwortlicherGKVit %><br />
+    <%= f.text_field :verantwortlicherGKVit %>
+  </div>
+   <div class="field">
+    <%= f.label :verantwortlicherGKVfachl %><br />
+    <%= f.text_field :verantwortlicherGKVfachl %>
+  </div>
+  <div class="field">
+    <%= f.label :verantwortlicherTD %><br />
+    <%= f.text_field :verantwortlicherTD %>
+  </div>
+  <div class="field">
+    <%= f.label :realisierungTD %><br />
+    <%= f.text_field :realisierungTD %>
+  </div>
+  <div class="field">
+    <%= f.label :KST %><br />
+    <%= f.number_field :KST %>
+  </div>
+  <div class="field">
+    <%= f.label :beschreibung %><br />
+    <%= f.text_field :beschreibung %>
+  </div>
+  <div class="field">
+    <%= f.label :sonderstatus %><br />
+    <%= f.text_field :sonderstatus %>
+  </div>
+  <div class="field">
+    <%= f.label :analyse_und_design %><br />
+    <%= f.date_select :analyse_und_design %>
+  </div>
+  <div class="field">
+    <%= f.label :fachl_freigabe_implementierung %><br />
+    <%= f.date_select :fachl_freigabe_implementierung %>
+  </div>
+  <div class="field">
+    <%= f.label :tech_freigabe_implementierung %><br />
+    <%= f.date_select :tech_freigabe_implementierung %>
+  </div>
+  <div class="field">
+    <%= f.label :fachl_freigabe_implementierung %><br />
+    <%= f.date_select :fachl_freigabe_implementierung %>
+  </div>
+  <div class="field">
+    <%= f.label :abnahme_teradata %><br />
+    <%= f.date_select :abnahme_teradata %>
+  </div>
+  <div class="field">
+    <%= f.label :fachliche_abnahme %><br />
+    <%= f.date_select :fachliche_abnahme %>
+  </div>
+  <div class="field">
+    <%= f.label :technische_abnahme %><br />
+    <%= f.date_select :technische_abnahme %>
+  </div>
+  <div class="field">
+    <%= f.label :migration %><br />
+    <%= f.date_select :migration %>
+  </div>
+  <div class="field">
+    <%= f.label :produktion %><br />
+    <%= f.date_select :produktion %>
+  </div>
+  <div class="field">
+    <%= f.label :ziel_migration %><br />
+    <%= f.date_select :ziel_migration %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

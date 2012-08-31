@@ -1,0 +1,9 @@
+class User < ActiveRecord::Base
+  #has_many :requests
+  attr_accessor :email_confirmation, :password_confirmation, :password, :firma
+  attr_accessible :email, :password, :username, :email_confirmation, :password_confirmation, :firma
+  validates_presence_of :username, :email, :firma
+  validates_uniqueness_of :username
+  validates_confirmation_of :email, :password
+  validates_length_of :password, :minimum => 6, :too_short => "Das Password muss mindestens 6 Zeichen lang sein!"
+end

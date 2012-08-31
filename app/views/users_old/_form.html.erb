@@ -1,0 +1,38 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :username, "Benutzername:" %><br />
+    <%= f.text_field :username %>
+  </div>
+  </div>
+   <div class="field">
+    <%= f.label :email_confirmation, "Benutzername Bestätigung" %><br />
+    <%= f.text_field :email_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Passwort:"%><br />
+    <%= f.text_field :password %>
+  </div>
+   <div class="field">
+    <%= f.label :password_confirmation, "Passwort Bestätigung:" %><br />
+    <%= f.text_field :password_confirmation %>
+  </div>
+    <div class="field">
+    <%= f.label :firma, "Firma:" %><br />
+    <%-#= select_tag "user[firma]", options_for_select([["GKV","GKV"],["Teradata","Teradata"],["ITSG","ITSG"]],"GKV")%>
+    <%= f.select(:firma,[['GKV','GKV'],['ITSG','ITSG'],['Teradata','Teradata']])%>
+   </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

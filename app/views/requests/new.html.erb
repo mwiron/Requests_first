@@ -1,0 +1,105 @@
+<h1>New request</h1>
+
+<%= form_for(@request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :request %><%= ": R" + (Request.last.request[1,5].to_i.next).to_s.rjust(5, '0') %>
+  </br >  <%= f.text_field :request, :value => "R" + (Request.last.request[1,5].to_i.next).to_s.rjust(5, '0'), :readonly => true, :hidden => true  %>
+   <%-#>    <%= f.text_field :request %>
+      </div>
+  <div class="field">
+    <%= f.label :verantwortlicherITSG, "Betriebliche Verantwortung (ITSG)" %><br />
+    <%= f.text_field :verantwortlicherITSG %>
+  </div>
+  <div class="field">
+    <%= f.label :verantwortlicherGKVfachl, "Fachliche Verantwortung (GKV)" %><br />
+    <%= select("request[verantwortlicherGKVfachl]", "user_id", User.all.collect {|p| [ p.username, p.id, p.firma=='GKV' ] }, { :include_blank => false, :selected =>nil })  %>
+    <%-#= f.text_field :verantwortlicherGKVfachl %>
+  </div>
+  <div class="field">
+    <%= f.label :verantwortlicherGKVit, "Technische Verantwortung (GKV)" %><br />
+    <%= select("request[verantwortlicherGKVfachl]", "user_id", User.all.collect {|p| [ p.username, p.id ] }, { :include_blank => false, :selected =>nil })  %>
+    <%-#= f.text_field :verantwortlicherGKVit %>
+  </div>
+  <div class="field">
+    <%= f.label :verantwortlicherTD, "Technische Verantwortung (TD)" %><br />
+    <%= f.text_field :verantwortlicherTD %>
+  </div>
+  <div class="field">
+    <%= f.label :realisierungTD, "Entwickler Teradata" %><br />
+    <%= f.text_field :realisierungTD %>
+  </div>
+  <div class="field">
+    <%= f.label :KST %><br />
+    <%= f.number_field :KST %>
+  </div>
+  <div class="field">
+    <%= f.label :beschreibung %><br />
+    <%= f.text_field :beschreibung %>
+  </div>
+  <div class="field">
+    <%= f.label :sonderstatus %><br />
+    <%= f.text_field :sonderstatus %>
+  </div>
+  <div class="field">
+    <%= f.label :analyse_und_design %><br />
+    <%= f.date_select :analyse_und_design %>
+  </div>
+  <div class="field">
+    <%= f.label :fachl_freigabe_implementierung %><br />
+    <%= f.date_select :fachl_freigabe_implementierung %>
+  </div>
+  <div class="field">
+    <%= f.label :tech_freigabe_implementierung %><br />
+    <%= f.date_select :tech_freigabe_implementierung %>
+  </div>
+  <div class="field">
+    <%= f.label :fachl_freigabe_implementierung %><br />
+    <%= f.date_select :fachl_freigabe_implementierung %>
+  </div>
+  <div class="field">
+    <%= f.label :abnahme_teradata %><br />
+    <%= f.date_select :abnahme_teradata %>
+  </div>
+  <div class="field">
+    <%= f.label :fachliche_abnahme %><br />
+    <%= f.date_select :fachliche_abnahme %>
+  </div>
+  <div class="field">
+    <%= f.label :technische_abnahme %><br />
+    <%= f.date_select :technische_abnahme %>
+  </div>
+  <div class="field">
+    <%= f.label :migration %><br />
+    <%= f.date_select :migration %>
+  </div>
+  <div class="field">
+    <%= f.label :produktion %><br />
+    <%= f.date_select :produktion %>
+  </div>
+  <div class="field">
+    <%= f.label :ziel_migration %><br />
+    <%= f.date_select :ziel_migration %>
+  </div>
+   <div class="field">
+    <%= f.label "Task" %> <br />
+  	<%= select("request[task_id]", "task_id", Task.all.collect {|p| [ p.beschreibung, p.id ] }, { :include_blank => false, :selected =>nil })  %>
+	
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', requests_path %>

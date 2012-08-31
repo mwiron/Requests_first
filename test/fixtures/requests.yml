@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  request: MyString
+  verantwortlicherITSG: MyString
+  verantwortlicherGKV: MyString
+  verantwortlicherTD: MyString
+  entwickler: MyString
+  KST: 1
+  bezeichnung: MyString
+  sonderstatus: MyString
+  analyse_und_design: 2012-08-28
+  fachl_freigabe_implementierung: 2012-08-28
+  tech_freigabe_implementierung: 2012-08-28
+  fachl_freigabe_implementierung: 2012-08-28
+  abnahme_teradata: 2012-08-28
+  fachliche_abnahme: 2012-08-28
+  technische_abnahme: 2012-08-28
+  migration: 2012-08-28
+  produktion: 2012-08-28
+  ziel_migration: 2012-08-28
+
+two:
+  request: MyString
+  verantwortlicherITSG: MyString
+  verantwortlicherGKV: MyString
+  verantwortlicherTD: MyString
+  entwickler: MyString
+  KST: 1
+  bezeichnung: MyString
+  sonderstatus: MyString
+  analyse_und_design: 2012-08-28
+  fachl_freigabe_implementierung: 2012-08-28
+  tech_freigabe_implementierung: 2012-08-28
+  fachl_freigabe_implementierung: 2012-08-28
+  abnahme_teradata: 2012-08-28
+  fachliche_abnahme: 2012-08-28
+  technische_abnahme: 2012-08-28
+  migration: 2012-08-28
+  produktion: 2012-08-28
+  ziel_migration: 2012-08-28
